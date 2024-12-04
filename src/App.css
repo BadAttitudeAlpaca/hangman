@@ -1,0 +1,54 @@
+.root {
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 auto;
+  align-items: center;
+  background-color: pink;
+}
+
+.hangman-title {
+  font-size: 4rem;
+  font-weight: 600;
+  color: red;
+  margin: 0 auto;
+  background-color: yellow;
+}
+
+.win-lose {
+  font-size: 2rem;
+  color: green;
+  margin: 0 auto;
+  background-color: ivory;
+}
+
+.hangman-scaffold {
+  position: relative;
+}
+
+.btn {
+  width: 100%;
+  border: 3px solid red;
+  background: none;
+  aspect-ratio: 1/1;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+}
+
+.btn.active {
+  background-color: hsl(123, 100%, 50%);
+  color: white;
+}
+
+.btn.inactive {
+  opacity: 0.3;
+}
+.btn:hover:not(:disabled),
+.btn:focus:not(:disabled) {
+  background-color: hsl(123, 100%, 75%);
+}

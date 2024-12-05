@@ -1,5 +1,5 @@
 {
-  "name": "hangman",
+  "name": "hangem",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "Math": "^0.0.1-security",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

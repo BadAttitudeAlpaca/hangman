@@ -5,15 +5,24 @@ import RightArm from "./BodyParts/RightArm";
 import RightLeg from "./BodyParts/RightLeg";
 import LeftLeg from "./BodyParts/LeftLeg";
 
-const HangmanScaffold = () => {
+interface props {
+  numberOfGuesses: number;
+}
+
+const Body_Parts = [
+  <Head key={0} />,
+  <Body key={1} />,
+  <LeftArm key={2} />,
+  <RightArm key={3} />,
+  <RightLeg key={4} />,
+  <LeftLeg key={5} />,
+];
+
+const HangmanDrawing = ({ numberOfGuesses }: props) => {
   return (
-    <div className="hangman-scaffold">
-      <Head />
-      <Body />
-      <LeftArm />
-      <RightArm />
-      <RightLeg />
-      <LeftLeg />
+    <div style={{ position: "relative" }}>
+      {Body_Parts.slice(0, numberOfGuesses)}
+
       {/* // NooseBar // */}
       <div
         style={{
@@ -49,4 +58,4 @@ const HangmanScaffold = () => {
   );
 };
 
-export default HangmanScaffold;
+export default HangmanDrawing;

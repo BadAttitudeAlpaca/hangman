@@ -1,25 +1,28 @@
-const HangmanWord = () => {
-  const word: string = "test";
-  const guessedLetters: string[] = ["t", "e", "g"];
+import "../App.css";
 
+interface props {
+  guessedLetters: string[];
+  wordToGuess: string;
+  reveal?: boolean;
+}
+
+const HangmanWord = ({
+  guessedLetters,
+  wordToGuess,
+  reveal = false,
+}: props) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: ".25em",
-        fontSize: "6rem",
-        fontWeight: "bold",
-        textTransform: "uppercase",
-        fontFamily: "monospace",
-      }}
-    >
-      {word.split("").map((letter, index) => (
+    <div className="hangman-word">
+      {wordToGuess.split("").map((letter, index) => (
         <span style={{ borderBottom: ".1em solid violet" }} key={index}>
           <span
             style={{
-              visibility: guessedLetters.includes(letter)
-                ? "visible"
-                : "hidden",
+              visibility:
+                guessedLetters.includes(letter) || reveal
+                  ? "visible"
+                  : "hidden",
+              color:
+                !guessedLetters.includes(letter) && reveal ? "red" : "black",
             }}
           >
             {letter}

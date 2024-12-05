@@ -17,14 +17,24 @@
 }
 
 .win-lose {
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: 600;
   color: green;
   margin: 0 auto;
   background-color: ivory;
 }
 
-.hangman-scaffold {
+/* .hangman-scaffold {
   position: relative;
+} */
+
+.hangman-word {
+  display: flex;
+  gap: 0.25em;
+  font-size: 6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: monospace;
 }
 
 .btn {

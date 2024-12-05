@@ -1,4 +1,4 @@
-import "../App.css";
+import styles from "./Keyboard.module.css";
 
 const KEYS = [
   "a",
@@ -29,18 +29,40 @@ const KEYS = [
   "z",
 ];
 
-const Keyboard = () => {
+type KeyboardProps = {
+  disabled?: boolean;
+  activeLetters: string[];
+  inactiveLetters: string[];
+  addGuessedLetter: (letter: string) => void;
+};
+
+const Keyboard = ({
+  activeLetters,
+  inactiveLetters,
+  addGuessedLetter,
+  disabled = false,
+}: KeyboardProps) => {
   return (
     <div
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(75px, 1fr))",
         gap: ".5rem",
+        alignSelf: "stretch",
       }}
     >
       {KEYS.map((key) => {
+        const isActive = activeLetters.includes(key);
+        const isInactive = inactiveLetters.includes(key);
         return (
-          <button className="btn" key={key}>
+          <button
+            onClick={() => addGuessedLetter(key)}
+            className={`${styles.btn} ${isActive ? styles.active : ""} ${
+              isInactive ? styles.inactive : ""
+            }`}
+            disabled={isInactive || isActive || disabled}
+            key={key}
+          >
             {key}
           </button>
         );
